@@ -1,0 +1,1348 @@
+@media screen and (min-width: 768px) and (max-width: 1132px) {
+  .content {
+    padding: 0 20px;
+    overflow: hidden;
+  }
+
+  .header {
+    padding-top: 14.69px;
+  }
+
+  .hero {
+    display: flex;
+    justify-content: space-between;
+
+    &__img {
+      margin-top: -83px;
+    }
+    
+    &__title {
+      margin-bottom: 16px;
+      font-size: 96px;
+      text-wrap: nowrap;
+
+      &-container {
+        margin-top: 65px;
+        margin-right: 9px;
+      }
+    }
+
+    &__date {
+      margin-bottom: 16px;
+      font-size: 24px;
+    }
+  
+    &__description {
+      margin-bottom: 50px;
+      font-size: 24px;
+    }
+  }
+
+  .section-chat {
+    margin-top: 130px;
+  
+    &__title {
+      font-size: 48px;
+      line-height: 120%;
+    }
+  
+    &__text {
+      margin-bottom: 66px;
+      margin-top: 42px;
+    }
+  
+    &__chat-container {
+      margin-top: 31px;
+      gap: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__img {
+      margin-left: 0;
+    }
+  }
+
+  .popup-img {
+    max-height: 270px;
+    height: 100%;
+    margin-left: 13.74px;
+    margin-right: 13.74px;
+  }
+
+  .chat {
+    height: 533px;
+
+    &__head {
+      & span {
+        font-size: 40px;
+      }
+    }
+
+    &__messages {
+      gap: 10px;
+      padding-left: 22px;
+      padding-right: 29px;
+
+    }
+
+    &__temp {
+  
+      &_bottom {
+        bottom: -1px;
+        height: 87px;
+      }
+    }
+
+    
+  &__popup {
+    max-width: 717px;
+    padding: 20px 40px;
+    
+    border-radius: 40px;
+    background: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+
+    &-container {
+      gap: 51px;
+      margin-top: 80px;
+    }
+
+    &-share {
+      font-size: 16px;
+      margin-left: 15px;
+
+      &-container {
+        display: flex;
+      }
+    }
+
+    &-btn {
+      padding: 18px 36px;
+      font-size: 20px;
+      text-align: left;
+
+      &-close {
+        margin-top: -95px;
+        margin-right: -40px;
+
+      }
+    }
+ 
+    &-title {
+      font-size: 36px;
+    }
+
+    &-hourly-rate {
+      font-size: 32px;
+    }
+    
+    &-description {
+      font-size: 16px;
+      margin-top: 35px;
+      margin-bottom: 50px;
+    }
+
+    &.show {
+      display: flex;
+    }
+
+    &-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &_1 {
+        max-width: 273px;
+        width: 100%;
+        gap: 15px;
+        max-height: 428px;
+      }
+
+      &_2 {
+        justify-content: center;
+        width: 100%;
+        max-width: 324px;
+      }
+    }
+  }
+  
+  }
+
+  .chat__input {
+    margin-bottom: 15px; 
+    margin-right: 20px; 
+    margin-left: 20px; 
+  }
+
+  .message {
+    padding: 10px;
+  }
+
+  .user {
+    padding: 20px;
+  }
+
+  .footer {
+    padding: 67px 124.5px 53px 0;
+    margin-top: 130px;
+  
+    &__content {
+      display: flex;
+      gap: 58.5px;
+    }
+
+    &__links {
+      margin-top: 22px;
+      gap: 12px;
+    }
+
+    &__link {
+      font-size: 24px;
+      text-decoration: none;
+      color: var(--Black, #000);
+      font-weight: 400;
+      line-height: 28px;
+    }
+  }
+
+  
+  .fest-program {
+    margin-top: 130px;
+
+    &__title {
+      text-shadow: none;
+      font-size: 48px;
+    }
+
+
+    &__cards {
+      margin-top: 50px;
+      gap: 40px;
+      margin-bottom: 50px;
+      
+    }
+
+    &__card {
+      padding: 60px 40px;
+
+      &-img {
+        margin-top: -25px;
+        align-self: end;
+      }
+
+      &_square {
+        padding: 30px 20px;
+        gap: 25px;
+      }
+
+      &_rectangle {
+        flex-direction: column-reverse;
+        gap: 0;
+        padding: 40px 36px 40px 20px;
+    
+
+        &-text-container {
+          gap: 25px;
+        }
+      }
+
+      &-title {
+        line-height: 110%;
+        font-size: 40px;
+      }
+
+      &-date {
+        margin-bottom: 5px;
+        font-size: 40px;
+      }
+
+      &-time {
+        font-size: 24px;
+        line-height: 120%; 
+        text-transform: uppercase;
+      }
+    }
+  }
+  .merch {
+   
+    &__container {
+      flex-direction: column;
+      align-items: center;
+      gap: 50px;
+      
+    }
+
+    &__title {
+      font-size: 48px;
+      line-height: 110%;
+    }
+
+    &__btn {
+      &_desktop {
+        display: none;
+      }
+
+      &_mobile {
+        display: block;
+      }
+    }
+
+    &__card {
+      width: 569px;
+      
+      &_covers {
+        margin-bottom: 37px;
+      }
+      
+      &_coffee {
+        margin-bottom: 50px;
+  
+        &-mobile {
+          display: block;
+        }
+
+        &-desktop {
+          display: none;
+        }
+      }
+    }
+
+    &__img {
+      margin-left: 0;
+      
+    }
+  }
+  
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .content {
+    padding: 0 15px;
+  }
+
+  .btn-close-popup:hover {
+    
+    
+      background: white;
+
+      & svg path {
+        fill-opacity: 0.2;
+        fill: #000;
+      }
+    }
+  
+
+  .header {
+    padding-top: 15px;
+    gap: 30px;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__btn {
+      padding: 18px 48px;
+      font-size: 20px;
+    }
+
+    &__img {
+      margin-top: 30px;
+
+      &_mobile {
+        display: block;
+      }
+
+      &_desktop {
+        display: none;
+      }
+    }
+    
+    &__title {
+      margin-bottom: 10px;
+      font-size: 65px;
+      font-weight: 600;
+      line-height: 100%; 
+
+
+      &-container {
+        margin-top: 40px;
+        margin-right: 0;
+      }
+    }
+
+    &__date {
+      margin-bottom: 10px;
+      font-size: 18px;
+      line-height: 120%;
+
+    }
+  
+    &__description {
+      margin-bottom: 35px;
+      font-size: 18px;
+      line-height: 120%;
+    }
+  }
+
+  .section-chat {
+    margin-top: 75px;
+  
+    &__title {
+      font-size: 40px;
+      line-height: 110%;
+    }
+  
+    &__text {
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+  
+    &__chat-container {
+      margin-top: 31px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    &__img {
+      margin-left: 0;
+      margin-top: 30px;
+
+      &_mobile {
+        display: block;
+      }
+
+      &_desktop {
+        display: none;
+      }
+    }
+  }
+
+  .popup-img {
+    max-height: 270px;
+    height: 100%;
+    margin-top: 35px;
+    margin-bottom: 35px;
+  }
+
+  .chat {
+    height: 533px;
+
+    &__head {
+      & span {
+        font-size: 40px;
+      }
+    }
+
+    &__messages {
+      gap: 10px;
+      padding-left: 22px;
+      padding-right: 29px;
+
+    }
+
+    &__temp {
+  
+      &_bottom {
+        bottom: -1px;
+        height: 87px;
+      }
+    }
+
+    &__popup {
+      padding: 35px 20px;
+      border-radius: 20px;
+      max-width: 717px;
+      width: 92%;
+
+      &-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        justify-content: space-between;
+        margin-top: 0;
+      }
+   
+      overflow: hidden;
+      
+      &-share {
+        font-size: 16px;
+      }
+  
+      &-btn {
+        padding: 18px 36px;
+        font-size: 20px;
+        width: 100%;
+        text-align: left;
+
+        &-close {
+          margin-right: 0;
+          margin-top: 0;
+       
+  
+  
+        }
+      }
+   
+      &-title {
+        font-size: 35px;
+        margin-top: 0;
+      }
+  
+      &-hourly-rate {
+        font-size: 40px;
+      }
+      
+      &-description {
+        margin-top: 20px;
+        margin-bottom: 50px;
+        font-size: 18px;
+        font-weight: 400;
+      }
+  
+      &.show {
+        display: flex;
+      }
+  
+      &-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+        &_1 {
+          max-width: 380px;
+          width: 100%;
+          gap: 0px;
+          padding: 0 29.74px;
+        }
+  
+        &_2 {
+          justify-content: center;
+          width: 100%;
+          max-width: 507px;
+
+        }
+      }
+    }
+  
+  }
+
+  .chat__input {
+    margin-bottom: 15px; 
+    margin-right: 20px; 
+    margin-left: 20px; 
+  }
+
+  .message {
+    padding: 10px;
+  }
+
+  .user {
+    padding: 20px;
+  }
+
+  .footer {
+    padding: 25px 15px 20px;
+    margin-top: 75px;
+
+    &__btn {
+      padding: 18px 45px;
+      font-size: 18px;
+      line-height: 120%;
+    }
+  
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding: 0;
+    }
+
+    &__logo-name {
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    &__logo-img {
+      max-width: 42.688px;
+      width: 100%;
+    }
+
+    &__links {
+      margin-top: 30px;
+      gap: 8px;
+      flex-direction: column;
+
+      &_mobile {
+        display: flex;
+      }
+
+      &_desktop {
+        display: none;
+      }
+      
+    }
+
+    &__contact {
+      & span {
+        font-size: 16px;
+        line-height: 120%;
+      }
+    }
+
+    &__link {
+      text-decoration: none;
+      color: var(--Black, #000);
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+
+  
+  .fest-program {
+    margin-top: 75px;
+
+    
+    &__btn {
+      padding: 18px 48px;
+      font-size: 20px;
+      
+    }
+
+    &__title {
+      text-shadow: none;
+      font-size: 40px;
+      line-height: 110%;
+      margin-bottom: 35px;
+    }
+
+
+    &__cards {
+      margin-top: 35px;
+      gap: 30px;
+      margin-bottom: 35px;
+      
+    }
+
+    &__square-cards-container {
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+    }
+
+    &__card {
+      padding: 30px 20px;
+
+      &-img {
+        margin-top: 5px;
+        align-self: end;
+        width: 100%;
+      }
+
+      &_square {
+        padding: 30px 20px;
+        gap: 25px;
+      }
+
+      &_rectangle {
+        flex-direction: column-reverse;
+        gap: 0;
+        padding: 40px 36px 40px 20px;
+    
+
+        &-text-container {
+          gap: 25px;
+          
+        }
+      }
+
+      &-title {
+        font-size: 35px;
+        line-height: 110%;
+      }
+
+      &-text {
+        font-size: 16px;
+        line-height: 120%;
+      }
+
+      &-date {
+        margin-bottom: 5px;
+        font-size: 35px;;
+        line-height: 110%; 
+      }
+
+      &-time {
+        font-size: 20px;
+        line-height: 120%; 
+        text-transform: uppercase;
+      }
+    }
+  }
+  .merch {
+    margin-top: 75px;
+
+    &__container {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 31px;
+      gap: 0;
+    }
+
+    &__title {
+      font-size: 40px;
+      line-height: 110%;
+     
+    }
+
+    &__btn {
+      &_desktop {
+        display: none;
+      }
+
+      &_mobile {
+        display: block;
+      }
+    }
+
+    &__card {
+      max-width: 569px;
+      width: 100%;
+      margin-bottom: 15px;
+      
+      &_covers {
+        margin-bottom: 15px;
+      }
+      
+      &_coffee {
+        margin-bottom: 35px;
+  
+        &-mobile {
+          display: block;
+        }
+
+        &-desktop {
+          display: none;
+        }
+      }
+    }
+
+    &__img {
+      margin-left: 0;
+      margin-top: 35px;
+      
+    }
+  }
+
+}
+    
+@media screen and (min-width: 1920px) {
+  .content {
+    max-width: 1427.5px;
+  }
+  
+  .header {
+    padding-top: 120px;
+  }
+
+  .hero {
+    &__title {
+      margin-bottom: 20px;
+      font-size: 150px;
+      
+      &-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 86px;
+      }
+    }
+  
+    &__date {
+      margin-bottom: 20px;
+    }
+  
+    &__description {
+      margin-bottom: 90px;
+    }
+  }
+  
+  .section-chat {
+    &__title {
+      font-size: 50px;
+      line-height: 110%;
+    }
+  
+    &__text {
+      margin-bottom: 80px;
+      margin-top: 120px;
+    }
+  
+    &__chat-container {
+      display: flex;
+      margin-top: 81px;
+      gap: 287px;
+    }
+  
+    &__img {
+      margin-left: 0;
+    }
+  }
+  
+  .chat {
+    max-width: 537px;
+
+    &__popup {
+      max-width: 1292px;
+      padding: 60px 130px;
+      
+
+      &-container {
+        gap: 166px;
+      }
+
+      &-btn {
+        &-close {
+          margin-top: -145px;
+          height: 50px;
+          width: 50px;
+          margin-left: auto;
+          margin-right: -130px;
+          border-radius: 30px;
+          border: none;
+          background: rgba(255, 255, 255, 0.40);
+        }
+      }
+
+      &-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+
+  .fest-program {
+    margin-top: 150px;
+  
+    &__square-cards-container {
+      gap: 60px;
+    }
+  
+    &__title {
+      font-size: 64px;
+      line-height: 110%;
+    }
+  
+    &__cards {
+      margin-top: 80px;
+      gap: 60px;
+      margin-bottom: 70px;
+    }
+  
+    &__card {
+      &_square {
+        max-width: 730px;
+        gap: 50px;
+      }
+
+      &-img {
+        margin-left: 115px;
+      }
+  
+      &_rectangle {
+       padding: 56px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        &-text-container {
+          max-width: 583px;
+          gap: 50px;
+          padding-left: 70px;
+        }
+      }
+    }
+  }
+
+  .merch {
+    margin-top: 150px;
+  
+    &__container {
+      gap: 60px;
+      margin-top: 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    &__card {
+      margin-bottom: 40px;
+      line-height: 120%;
+      font-size: 30px;
+      width: 730px;
+      
+  
+      &_covers {
+        margin-bottom: 90px;
+      }
+  
+      &_coffee {
+        margin-bottom: 100px;
+      }
+    }
+  
+    &__img {
+      margin-left: 115px;
+    }
+
+    &__btn {
+      width: 100%;
+    }
+  }
+
+  .footer {
+    padding: 59px 0 66px;
+    margin-top: 150px;
+  
+    &__content {
+      display: flex;
+      gap: 479px;
+    }
+  
+    &__links {
+      margin-top: 53px;
+    }
+  
+    &__link {
+      font-size: 20px;
+      font-weight: 400;
+      text-decoration: none;
+    }
+  
+    &__contact {
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+    }
+  
+    &__btn {
+      width: 260px;
+      height: 65px;
+  
+      &_telegram {
+        margin-top: 30px;
+      }
+
+    }
+  }
+}
+
+@media screen and (min-width: 1133px) and (max-width: 1599px) {
+   .content {
+    padding: 0 50px;
+    overflow: hidden;
+  }
+
+  .btn-close-popup:hover {
+    
+    
+    background: white;
+
+    & svg path {
+      fill-opacity: 0.2;
+      fill: #000;
+    }
+  }
+
+  .bot {
+
+    &-name {
+      white-space: nowrap;
+    }
+    
+  }
+  
+  .header {
+    padding-top: 0px;
+  }
+
+  .hero {
+    display: flex;
+    justify-content: space-between;
+
+    &__img {
+      margin-top: -85.25px;
+    }
+    
+    &__title {
+      margin-bottom: 16px;
+      font-size: 96px;
+      text-wrap: nowrap;
+
+      &-container {
+        margin-top: 65px;
+        margin-right: 9px;
+      }
+    }
+
+    &__date {
+      margin-bottom: 16px;
+      font-size: 24px;
+    }
+  
+    &__description {
+      margin-bottom: 53.28px;
+      font-size: 24px;
+      max-width: 484px;
+    }
+  }
+
+  .section-chat {
+    margin-top: 150px;
+  
+    &__title {
+      font-size: 50px;
+      line-height: 110%; 
+    }
+  
+    &__text {
+      margin-bottom: 40px;
+      margin-top: 0px;
+      line-height: 120%;
+    }
+  
+    &__chat-container {
+      margin-top: 63px;
+      gap: 120px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__img {
+      margin-left: 0;
+    }
+  }
+
+  .popup-img {
+    max-height: 270px;
+    height: 100%;
+    margin-left: 13.74px;
+    margin-right: 13.74px;
+  }
+
+  .chat {
+    height: 533px;
+
+    &__head {
+      & span {
+        font-size: 40px;
+      }
+    }
+
+    &__messages {
+      gap: 10px;
+      padding-left: 22px;
+      padding-right: 29px;
+
+    }
+
+    &__temp {
+  
+      &_bottom {
+        bottom: -1px;
+        height: 87px;
+      }
+    }
+
+    
+  &__popup {
+    max-width: 1068px;
+    padding: 25px 38px;
+    
+    border-radius: 40px;
+    background: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+
+    &-container {
+      gap: 80px;
+      justify-content: space-between;
+      display: flex;
+      margin-top: 0;
+    }
+
+    &-share {
+      font-size: 20px;
+      margin-left: 15px;
+    }
+
+    &-btn {
+      padding: 18px 36px;
+      font-size: 20px;
+      text-align: left;
+
+      &-close {
+        margin-right: 0;
+        margin-top: 0;
+      }
+    }
+ 
+    &-title {
+      font-size: 50px;
+      line-height: 110%;
+    }
+
+    &-hourly-rate {
+      font-size: 60px;
+      line-height: 110%;
+    }
+    
+    &-description {
+      font-size: 20px;
+      margin-top: 40px;
+      margin-bottom: 70px;
+    }
+
+    &.show {
+      display: flex;
+    }
+
+    &-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &_1 {
+        max-width: 380px;
+        width: 100%;
+        gap: 40px;
+        max-height: 602px;
+      }
+
+      &_2 {
+        justify-content: center;
+        width: 100%;
+        max-width: 507px;
+      }
+    }
+  }
+  
+  }
+
+  .chat__input {
+    margin-bottom: 15px; 
+    margin-right: 20px; 
+    margin-left: 20px; 
+  }
+
+  .message {
+    padding: 10px;
+    overflow-wrap: break-word;
+  }
+
+  .user {
+    padding: 20px;
+  }
+
+  .footer {
+    padding: 50px 0 74px;
+    margin-top: 77px;
+  
+    &__content {
+      display: flex;
+      justify-content: center;
+      gap: 117px;
+    }
+
+    &__links {
+      margin-top: 53px;
+      gap: 15px;
+    }
+
+    &__link {
+      font-size: 20px;
+      text-decoration: none;
+      color: var(--Black, #000);
+      font-weight: 400;
+    }
+  }
+
+  
+  .fest-program {
+    margin-top: 150px;
+
+    &__title {
+      text-shadow: none;
+      font-size: 50px;
+      line-height: 110%
+    }
+
+    &__cards {
+      margin-top: 60px;
+      gap: 52px;
+      margin-bottom: 50px;
+      
+    }
+
+    &__square-cards-container {
+      gap: 52px;
+      display: flex;
+      justify-content: center;
+    }
+
+    &__card {
+      padding: 60px 40px;
+   
+      &-text {
+        font-size: 16px;
+        line-height: 120%;
+      }
+
+      &-img {
+        margin-top: 104px;
+        align-self: center;
+        margin-top: 0;
+        max-width: 380px;
+        margin-left: 0px;
+      }
+
+      &_square {
+        padding: 30px 20px;
+        gap: 25px;
+        max-width: 490px;
+        width: 100%;
+  
+      }
+
+      &_rectangle {
+        padding: 49px 29px 75px 40px;
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+         max-width: 490px * 2 + 52px;
+         margin-left: auto;
+         margin-right: auto;
+ 
+         &-text-container {
+           max-width: 583px;
+           gap: 50px;
+           padding-left: 70px;
+         }
+       }
+
+      &-title {
+        line-height: 110%;
+        font-size: 35px;
+      }
+
+      &-date {
+        margin-bottom: 5px;
+        font-size: 35px;
+        line-height: 110%;
+      }
+
+      &-time {
+        font-size: 20px;
+        line-height: 120%; 
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .merch {
+    margin-top: 150px;
+  
+    &__title {
+      font-size: 50px;
+      line-height: 110%;
+    }
+  
+    &__container {
+      display: flex;
+      gap: 37px;
+      margin-top: 83px;
+      margin-left: auto;
+      margin-right: auto;
+      width: fit-content;
+  
+      &-column {
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+
+        &_2 {
+          display: flex;
+          flex-direction: column-reverse;
+          justify-content: space-between;
+        }
+
+        &_1 {
+          margin-top: 0px;
+        }
+        
+      }
+    }
+  
+    &__card {
+      padding: 60px 40px;
+      margin-bottom: 50px;
+      border-radius: 40px;
+      border: 1px solid var(--Black, #000);
+      font-size: 30px;
+      width: 100%;
+      line-height: 120%;
+  
+      &_covers {
+        margin-bottom: 0px;
+      }
+  
+      
+      &_coffee {
+        margin-bottom: 0px;
+        justify-self: end;
+  
+        &-mobile {
+          display: none;
+        }
+      }
+    }
+  
+    &__img {
+      margin-left: 27px;
+      width: 100%;
+      max-width: 454px;
+      margin-bottom: 55.06px;
+    }
+  
+    &__btn {
+      &_mobile {
+        display: none;
+      }
+
+      &_desktop {
+        display: none;
+      }
+
+      &_1133 {
+        margin-top: 103px;
+        display: block;
+      }
+    }
+  }
+
+  .popup-img {
+    max-height: 331px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+}

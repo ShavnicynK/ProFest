@@ -1,0 +1,34 @@
+{% extends 'manage\base_manage.html' %}
+{% load custom_filters %}
+{% load static %}
+{% block page-title %}Telegram-бот{% endblock page-title %}
+{% block content %}
+
+    <h2 class="events__table-title events__table-title_completed" style="margin-bottom: 20px">Отправка сообщений</h2>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn event__btn edit-btn" type="submit" value="Отправить">
+    </form>
+
+    <h2 class="events__table-title events__table-title_completed" style="margin-bottom: 20px">История сообщений</h2>
+    {% if botmessages %}
+        <table class="table">
+            <tr>
+                <th>Дата отправки</th>
+                <th>Сообщение</th>
+            </tr>
+            {% for botmessage in botmessages %}
+                    <tr>
+                        <td>{{ botmessage.date|date:'d E Y - H:i' }}</td>
+                        <td>{{ botmessage.text }}</td>
+                    </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <h2>Сообщений нет!</h2>
+    {% endif %}
+
+    {% endblock content %}
+

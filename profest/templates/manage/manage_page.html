@@ -1,0 +1,150 @@
+{% extends 'manage\base_manage.html' %}
+{% load custom_filters %}
+{% load static %}
+{% block page-title %}Главная{% endblock page-title %}
+{% block content %}
+
+    <h2 class="events__table-title events__table-title_completed" style="margin-bottom: 20px">Посетители сайта</h2>
+    <div class="graph-visits-container">
+        <div class="graph">
+            <div>
+                <canvas id="VisitChart" style="width: 1084px; height: 298px;"></canvas>
+            </div>
+        </div>
+        <div class="visits">
+            <h3>Всего визитов - {{ data.visits }}</h3>
+            <span>ФИО - {{ data.fio }}</span>
+            <span>Возраст - {{ data.age }}</span>
+            <span>Город - {{ data.city }}</span>
+            <span>Профессия - {{ data.profession }}</span>
+            <span>Стаж - {{ data.experience }}</span>
+            <span>Зарплата - {{ data.income }}</span>
+            <span>Контакт - {{ data.contact }}</span>
+        </div>
+    </div>
+    <div style="display: flex; margin-top: 30px; margin-left: 50px;" >
+        <div>
+            <h2 class="events__table-title events__table-title_completed" style="margin-bottom: 20px">Возраст аудитории</h2>
+            <div>
+                <canvas id="AgeDonut" style="width: 500px; height: 500px; margin-right: 100px"></canvas>
+            </div>
+        </div>
+        <div>
+            <h2 class="events__table-title events__table-title_completed" style="margin-bottom: 20px">География аудитории</h2>
+            <div>
+                <canvas id="CityDonut" style="width: 500px; height: 500px;"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="events__table-title events__table-title_completed" style="margin-bottom: 20px">Активные события</h2>
+    {% if data.events %}
+        <div class="fest-program__square-cards-container main__cards-container">
+            {% for event in data.events %}
+                <div class="fest-program__card fest-program__card_square {{ styles|random }} main__card">
+                    <span class="fest-program__card-title main__card-title">{{ event.name }}</span>
+                    <p class="fest-program__card-text main__card-text">{{ event.description }}</p>
+                    <div>
+                        <p class="fest-program__card-date main__card-date">{{ event.date|date:'d E' }}</p>
+                        <p class="fest-program__card-time main__card-time">{{ event.start_time|date:'H:i' }} - {{ event.finish_time|date:'H:i' }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h2>Событий еще нет!</h2>
+    {% endif %}
+
+    <script>
+        const visit_ctx = document.getElementById('VisitChart');
+        new Chart(visit_ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'Все визиты',
+                    'ФИО',
+                    'Возраст',
+                    'Город',
+                    'Профессия',
+                    'Стаж',
+                    'Контакт',
+                    'Зарплата'
+                ],
+                datasets: [{
+                    label: 'визиты',
+                    data: [
+                        {{ data.visits }},
+                        {{ data.fio }},
+                        {{ data.age }},
+                        {{ data.city }},
+                        {{ data.profession }},
+                        {{ data.experience }},
+                        {{ data.contact }},
+                        {{ data.income }}
+                    ],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(255, 159, 64, 0.6)',
+                        'rgba(255, 205, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(153, 102, 255, 0.6)',
+                        'rgba(201, 203, 207, 0.6)',
+                        'rgba(165, 228, 198, 0.6)'
+                    ],
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const age_ctx = document.getElementById('AgeDonut');
+        const age_data = {
+            labels: ['Возраст до 25', 'Возраст от 25 до 40', 'Возраст от 40'],
+            datasets: [{
+                data: [{{ data.age_25 }}, {{ data.age_25_40 }}, {{ data.age_40 }}],
+                backgroundColor: [
+                    'rgb(255, 99, 132, 0.6)',
+                    'rgb(54, 162, 235, 0.6)',
+                    'rgb(255, 205, 86, 0.6)'
+                ],
+                hoverOffset: 10
+            }]
+        };
+        let CityChart = new Chart(age_ctx, {
+            type: 'doughnut',
+            data: age_data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+            }
+        });
+
+        const city_ctx = document.getElementById('CityDonut');
+        const city_data = {
+            labels: ['Москва', 'Питер', 'Другие'],
+            datasets: [{
+                data: [{{ data.city_mos }}, {{ data.city_spb }}, {{ data.city_other }}],
+                backgroundColor: [
+                    'rgb(75, 192, 192, 0.6)',
+                    'rgb(255, 205, 86, 0.6)',
+                    'rgb(201, 203, 207, 0.6)'
+                ],
+                hoverOffset: 10
+            }]
+        };
+        let CityChart2 = new Chart(city_ctx, {
+            type: 'polarArea',
+            data: city_data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+            }
+        });
+    </script>
+{% endblock content %}

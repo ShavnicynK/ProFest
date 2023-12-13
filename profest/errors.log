@@ -1,0 +1,39 @@
+2023-12-13 13:46:35,928 ERROR Internal Server Error: / C:\work\Learning\projects\profest\venv\Lib\site-packages\django\utils\log.py (<class 'TypeError'>, TypeError("'NoneType' object is not subscriptable"), <traceback object at 0x0000017DFA098EC0>)
+Traceback (most recent call last):
+  File "C:\work\Learning\projects\profest\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\work\Learning\projects\profest\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\work\Learning\projects\profest\profest\app\views.py", line 55, in index_view
+    start_fest = Event.objects.filter(status='1').order_by('date').values('date').first()['date']
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2023-12-13 13:46:35,930 ERROR "GET / HTTP/1.1" 500 72636 C:\work\Learning\projects\profest\venv\Lib\site-packages\django\core\servers\basehttp.py None
+2023-12-13 13:49:03,947 ERROR Internal Server Error: / C:\work\Learning\projects\profest\venv\Lib\site-packages\django\utils\log.py (<class 'TypeError'>, TypeError("'NoneType' object is not subscriptable"), <traceback object at 0x00000217F2B08280>)
+Traceback (most recent call last):
+  File "C:\work\Learning\projects\profest\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\work\Learning\projects\profest\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\work\Learning\projects\profest\profest\app\views.py", line 55, in index_view
+    start_fest = Event.objects.filter(status='1').order_by('date').values('date').first()['date']
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2023-12-13 13:49:03,949 ERROR "GET / HTTP/1.1" 500 73171 C:\work\Learning\projects\profest\venv\Lib\site-packages\django\core\servers\basehttp.py None
+2023-12-13 13:51:43,912 ERROR Internal Server Error: / C:\work\Learning\projects\profest\venv\Lib\site-packages\django\utils\log.py (<class 'TypeError'>, TypeError("'NoneType' object is not subscriptable"), <traceback object at 0x0000023A6E89CF40>)
+Traceback (most recent call last):
+  File "C:\work\Learning\projects\profest\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\work\Learning\projects\profest\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\work\Learning\projects\profest\profest\app\views.py", line 56, in index_view
+    start_fest = Event.objects.filter(status='1').order_by('date').values('date').first()['date']
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+2023-12-13 13:51:43,914 ERROR "GET / HTTP/1.1" 500 73125 C:\work\Learning\projects\profest\venv\Lib\site-packages\django\core\servers\basehttp.py None

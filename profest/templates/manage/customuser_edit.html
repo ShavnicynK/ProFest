@@ -1,0 +1,13 @@
+{% extends 'manage\base_manage.html' %}
+{% load custom_filters %}
+{% load static %}
+{% block page-title %}Пользователь - доп. настройки{% endblock page-title %}
+{% load custom_filters %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn event__btn edit-btn" type="submit" value="Сохранить">
+    </form>
+{% endblock content %}

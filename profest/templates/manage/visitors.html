@@ -1,0 +1,106 @@
+{% extends 'manage\base_manage.html' %}
+{% load custom_filters %}
+{% load static %}
+{% block page-title %}Конверсии{% endblock page-title %}
+{% block content %}
+    <style>
+        #id_age_0, #id_age_1 {width:50px}
+    </style>
+    <div style="margin-bottom:30px">
+        <form action="" method="get">
+            {{ filterset.form.as_table }}
+            <input type="submit" value="Фильтровать">
+        </form>
+        {% if filter_on %}
+        <a href="/manage/visitors/">сбросить параметры</a>
+        {% endif %}
+    </div>
+    {% if visitors %}
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>Статус</th>
+                <th>ФИО</th>
+                <th>Профессия</th>
+                <th>Контакты</th>
+                <th>Зарплата</th>
+                <th>Активность</th>
+                <th>Мероприятия</th>
+                <th>Телеметрия</th>
+                <th>Примечание</th>
+            </tr>
+            {% for visitor in visitors %}
+
+                    <tr>
+                        <td>
+                            <a class="nav-link" href="/manage/visitors/edit/{{ visitor.id }}">
+                                <img class="table__name-cell-img" src="{% static 'img/edit.svg' %}" alt="Изменить">
+                            </a>
+                        </td>
+                        <td>{{ visitor.status|status }}</td>
+                        <td>{{ visitor.fio }}<br>Возраст: {{ visitor.age }}</td>
+                        <td>{{ visitor.profession }}<br>Стаж: {{ visitor.experience }}</td>
+                        <td>
+                            Город: {{ visitor.city }}<br>
+                            Телефон: {{ visitor.phone|empty_data }}<br>
+                            Телеграм: {{ visitor.telegram|empty_data }}
+                        </td>
+                        <td>
+                            {{ visitor.monthly_income }}/мес<br>
+                            {{ visitor.hourly_income }}/час
+                        </td>
+                        <td>{{ visitor.want_event|w_event }}</td>
+                        <td>
+                            {% if visitor.event.all.count > 0 %}
+                                {% for event in visitor.event.all %}
+                                    - {{ event.name }}<br><br>
+                                {% endfor %}
+                            {% else %}
+                                --
+                            {% endif %}
+                        </td>
+                        <td>
+                            Когда заходил: {{ visitor.visit_date|date:'d-m-Y H:i' }}<br>
+                            Время на сайте: {{ visitor.visit_duration }} сек<br>
+                            Устройство: {{ visitor.device|d_type }}<br>
+                            Откуда пришел: {{ visitor.referrer|empty_data }}
+                        </td>
+                        <td>{{ visitor.note }}</td>
+                    </tr>
+
+            {% endfor %}
+        </table>
+
+
+    {% else %}
+            <h2>А тут пусто...</h2>
+    {% endif %}
+    {% if page_obj.has_next %}
+        {% if page_obj.has_previous %}
+            <a href="?page=1">1</a>
+            {% if page_obj.previous_page_number != 1 %}
+                ...
+                <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+            {% endif %}
+        {% endif %}
+
+        {{ page_obj.number }}
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+            {% if paginator.num_pages != page_obj.next_page_number %}
+                ...
+                <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+    <script>
+        document.getElementById('id_telegram_user_id').options[0].innerText = "---------";
+        document.getElementById('id_telegram_user_id').options[1].innerText = "Да";
+        document.getElementById('id_telegram_user_id').options[2].innerText = "Нет";
+        document.getElementById('add-event-button').addEventListener('click', function() {
+           window.location.href = '/manage/events/create/';
+        });
+    </script>
+{% endblock content %}
+

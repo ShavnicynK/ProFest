@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>{% block head_title %}{% endblock head_title %}</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/admin.css' %}">
+
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;700&family=Rubik+Mono+One&display=swap');
+        </style>
+    </head>
+    <body class="body">
+        <div>
+            <ul class="messages">
+                {% if message %}
+                  <li>{{ message }}</li>
+                {% endif %}
+            </ul>
+        </div>
+        {% block content %}
+            {% if user.is_authenticated %}
+                <h2>Вы уже авторизовались!</h2>
+            {% else %}
+                <div class="content">
+                    <form class="auth" method="POST" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        <div class="logo-name auth__logo-name">
+                            <img src="{% static 'img/logo.svg' %}" alt="логотип">
+                            <span class="logo-name__name">Pro-fest</span>
+                        </div>
+                        <input type="text" name="username" class="admin-input auth__input-login" placeholder="Логин">
+                        <input type="password" name="password" class="admin-input auth__input-password" placeholder="Пароль">
+                        <button class="btn" type="submit">Вход</button>
+                    </form>
+                </div>
+            {% endif %}
+        {% endblock %}
+    </body>
+</html>
+

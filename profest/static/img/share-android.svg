@@ -1,0 +1,9 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="share-android">
+<path id="Path 2" d="M32 16L16 22" stroke="black" stroke-width="2" stroke-linecap="round"/>
+<path id="Path 2_2" d="M32 32L16 26" stroke="black" stroke-width="2" stroke-linecap="round"/>
+<path id="Oval" fill-rule="evenodd" clip-rule="evenodd" d="M12 28C14.2091 28 16 26.2091 16 24C16 21.7909 14.2091 20 12 20C9.79086 20 8 21.7909 8 24C8 26.2091 9.79086 28 12 28Z" stroke="black" stroke-width="2"/>
+<path id="Oval_2" fill-rule="evenodd" clip-rule="evenodd" d="M36 18C38.2091 18 40 16.2091 40 14C40 11.7909 38.2091 10 36 10C33.7909 10 32 11.7909 32 14C32 16.2091 33.7909 18 36 18Z" stroke="black" stroke-width="2"/>
+<path id="Oval_3" fill-rule="evenodd" clip-rule="evenodd" d="M36 38C38.2091 38 40 36.2091 40 34C40 31.7909 38.2091 30 36 30C33.7909 30 32 31.7909 32 34C32 36.2091 33.7909 38 36 38Z" stroke="black" stroke-width="2"/>
+</g>
+</svg>

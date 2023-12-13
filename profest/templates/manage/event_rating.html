@@ -1,0 +1,57 @@
+{% extends 'manage\base_manage.html' %}
+{% load custom_filters %}
+{% load static %}
+{% block page-title %}Оценки - {{ event_name }}{% endblock page-title %}
+{% block content %}
+
+<form action="" method="get">
+    {{ filterset.form.as_table }}
+    <input type="submit" value="Фильтровать">
+</form>
+{% if filter_on %}
+<a href="/manage/events/rating/{{ event_id }}">сбросить параметры</a>
+{% endif %}
+    {% if rates %}
+
+        <table class="table">
+            <tr>
+                <th>Участник</th>
+                <th>Оценка</th>
+                <th>Впечатление</th>
+            </tr>
+            {% for rate in rates %}
+                    <tr>
+                        <td>
+                            {{ rate.visitor.fio }}
+                        </td>
+                        <td>{{ rate.rate }}</td>
+                        <td>{{ rate.text }}</td>
+                    </tr>
+            {% endfor %}
+        </table>
+
+
+    {% else %}
+            <h2>Оценок еще нет!</h2>
+    {% endif %}
+    {% if page_obj.has_next %}
+        {% if page_obj.has_previous %}
+            <a href="?page=1">1</a>
+            {% if page_obj.previous_page_number != 1 %}
+                ...
+                <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+            {% endif %}
+        {% endif %}
+
+        {{ page_obj.number }}
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+            {% if paginator.num_pages != page_obj.next_page_number %}
+                ...
+                <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endblock content %}
+

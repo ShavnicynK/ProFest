@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>{% block head_title %}{% endblock head_title %}</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/admin.css' %}">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;700&family=Rubik+Mono+One&display=swap');
+        </style>
+    </head>
+    <body class="body">
+        <div class="content">
+            <div class="admin-page">
+                <aside class="admin-aside">
+                    <div class="logo-name">
+                        <img class="logo-name__logo" src="{% static 'img/logo.svg' %}" alt="логотип">
+                        <span class="logo-name__name">Pro-fest</span>
+                    </div>
+                    <nav class="admin-aside-nav">
+                        <div>
+                            <a class="admin-aside-nav__button" href="/manage/">
+                                <img src="{% static 'img/home.svg' %}">
+                                <span>Главная</span>
+                            </a>
+                            <a class="admin-aside-nav__button" href="/manage/visitors/">
+                                <img src="{% static 'img/activity.svg' %}">
+                                <span>Конверсии</span>
+                            </a>
+                            <a class="admin-aside-nav__button" href="/manage/events/">
+                                <img src="{% static 'img/calendar.svg' %}">
+                                <span>События</span>
+                            </a>
+                            <a class="admin-aside-nav__button" href="/manage/bot/">
+                                <img src="{% static 'img/t-bot.svg' %}">
+                                <span>Телеграм-бот</span>
+                            </a>
+                        </div>
+                        <div class="admin-aside-nav__settings-exit-container">
+                            <a class="admin-aside-nav__button" href="/manage/settings/">
+                                <img src="{% static 'img/setting.svg' %}">
+                                <span>Настройки</span>
+                            </a>
+                            <a class="admin-aside-nav__button" href="/logout/">
+                                <img src="{% static 'img/exit.svg' %}">
+                                <span>Выход</span>
+                            </a>
+                        </div>
+                    </nav>
+                </aside>
+                <div class="admin-header-form-container">
+                    <header class="admin-header">
+                        <span class="admin-header__title">{% block page-title %}{% endblock page-title %}</span>
+                        <div class="admin-header__data-time" id="clock">
+                            <p class="date">[[ date ]]</p>
+                            <p class="time admin-header__time">[[ time ]]</p>
+                        </div>
+                    </header>
+                    <div class="admin-form" style="padding-bottom:40px;">
+                        {% block content %}
+                            {{ content }}
+                        {% endblock content %}
+                  </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+        <script src="{% static 'js/data-time.js' %}"></script>
+
+    </body>
+</html>

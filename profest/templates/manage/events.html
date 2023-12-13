@@ -1,0 +1,107 @@
+{% extends 'manage\base_manage.html' %}
+{% load custom_filters %}
+{% load static %}
+{% block page-title %}Все события{% endblock page-title %}
+{% block content %}
+
+    <a class="btn events__button" id="add-event-button" href="/manage/events/create/">Добавить</a>
+
+    {% if events %}
+        <h2 class="events__table-title events__table-title_active">Активные:</h2>
+        <table class="table">
+            <tr>
+                <th>Название</th>
+                <th>Описание</th>
+                <th>Дата и время</th>
+                <th>Количество участников</th>
+                <th>Действия</th>
+            </tr>
+            {% for event in events %}
+                {% if event.status == 1 %}
+                    <tr>
+                        <td>
+                            {{ event.name }}
+                            <a class="nav-link" href="/manage/events/edit/{{ event.id }}">
+                                <img class="table__name-cell-img" src="{% static 'img/edit.svg' %}" alt="Изменить">
+                            </a>
+                        </td>
+                        <td>{{ event.description }}</td>
+                        <td>
+                            {{ event.date|date:'d-m-Y' }}<br>
+                            {{ event.start_time|date:'H:i' }} - {{ event.finish_time|date:'H:i' }}
+                        </td>
+                        <td>{{ event.vevent.all.count }}</td>
+                        <td>
+                            <a class="nav-link" href="/manage/events/close/{{ event.id }}">
+                                <img class="table__time-cell-img" src="{% static 'img/clipboard-tick.svg' %}" alt="Завершить">
+                            </a>
+                            <a class="nav-link" href="/manage/events/delete/{{ event.id }}">
+                                <img class="table__time-cell-img" src="{% static 'img/delete.svg' %}" alt="Отменить">
+                            </a>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+
+        <h2 class="events__table-title events__table-title_completed">Завершенные:</h2>
+
+        <table class="table">
+            <tr>
+                <th>Название</th>
+                <th>Описание</th>
+                <th>Дата и время</th>
+                <th>Количество участников</th>
+                <th>Оценка</th>
+            </tr>
+            {% for event in events %}
+                {% if event.status == 2 %}
+                    <tr>
+                        <td>{{ event.name }}</td>
+                        <td>{{ event.description }}</td>
+                        <td>
+                            {{ event.date|date:'d-m-Y' }}<br>
+                            {{ event.start_time|date:'H:i' }} - {{ event.finish_time|date:'H:i' }}
+                        </td>
+                        <td>{{ event.vevent.all.count }}</td>
+                        <td>
+                            {% if event.rating %}
+                                {{ event.rating }} (оценок: {{ event.count_rate }})
+                                <a class="nav-link" href="/manage/events/rating/{{ event.id }}">
+                                    <img class="table__time-cell-img" src="{% static 'img/view.svg' %}" alt="просмотр">
+                                </a>
+                            {% else %}
+                                Оценок еще нет
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+
+        <h2 class="events__table-title events__table-title_completed">Отмененные:</h2>
+
+        <table class="table">
+            <tr>
+                <th>Название</th>
+                <th>Описание</th>
+                <th>Дата и время</th>
+            </tr>
+            {% for event in events %}
+                {% if event.status == 3 %}
+                    <tr>
+                        <td>{{ event.name }}</td>
+                        <td>{{ event.description }}</td>
+                        <td>
+                            {{ event.date|date:'d-m-Y' }}<br>
+                            {{ event.start_time|date:'H:i' }} - {{ event.finish_time|date:'H:i' }}
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    {% else %}
+        <h2>Сообытий еще нет!</h2>
+    {% endif %}
+{% endblock content %}
+

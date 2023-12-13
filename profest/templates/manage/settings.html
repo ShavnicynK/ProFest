@@ -1,0 +1,44 @@
+{% extends 'manage\base_manage.html' %}
+{% load custom_filters %}
+{% load static %}
+{% block page-title %}Настройки{% endblock page-title %}
+{% block content %}
+
+
+    <h2 class="events__table-title events__table-title_completed" style="margin-bottom: 20px">Телеграм-бот</h2>
+
+    <a class="nav-link" style="font-size:16px" href="/manage/settings/bot/1">Настройки бота</a>
+
+    <h2 class="events__table-title events__table-title_completed" style="margin-bottom: 20px">Пользователи</h2>
+
+    <a class="btn events__button" style="margin-bottom: 30px"  href="/manage/settings/user_create">Добавить пользователя</a>
+    {% if users %}
+        <table class="table">
+            <tr>
+                <th>Логин</th>
+                <th>Telegram</th>
+                <th>Уведомления</th>
+            </tr>
+            {% for user in users %}
+                    <tr>
+                        <td>
+                            {{ user.user.username }}
+                            <a class="nav-link" href="/manage/settings/user_edit/{{ user.id }}">
+                                <img class="table__name-cell-img" src="{% static 'img/edit.svg' %}" alt="Изменить">
+                            </a>
+                            <a class="nav-link" style="font-size:16px; display:block; float:right" href="/manage/settings/user_password/{{ user.user.id }}">
+                                сбросить пароль
+                            </a>
+                        </td>
+                        <td>{{ user.telegram }}</td>
+                        <td>{{ user.report|r_type }}</td>
+                    </tr>
+            {% endfor %}
+        </table>
+
+
+    {% else %}
+        <h2>Пользователей еще нет!</h2>
+    {% endif %}
+
+{% endblock content %}

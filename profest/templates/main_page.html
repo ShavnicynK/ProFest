@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        {% csrf_token %}
+        <script>const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;</script>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>{% block head_title %}{% endblock head_title %}</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/exceptions.css' %}">
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;700&family=Rubik+Mono+One&display=swap');
+        </style>
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    </head>
+    <body class="body">
+    <div class="content">
+        <header class="header">
+            <div class="logo-name ">
+                <a href="/manage/"><img class="footer__logo-img" src="{% static 'img/logo.svg' %}" alt="логотип"></a>
+                <span class="logo-name__name footer__logo-name">Pro-fest</span>
+            </div>
+        </header>
+        <section class="hero">
+            <div class="hero__title-container">
+                <span class="hero__date">{{ data.start_fest|date:'d' }}-{{ data.end_fest|date:'d E' }}</span>
+                <h1 class="hero__title">Pro-fest</h1>
+                <span class="hero__description">Онлайн-фестиваль о карьерном самоопределении</span>
+                <button class="btn hero__btn scroll-button btn-green">Записаться</button>
+            </div>
+          <div>
+            <img class="hero__img hero__img_desktop" src="{% static 'img/hero-img.png' %}" alt="разные предметы">
+            <img class="hero__img hero__img_mobile" src="{% static 'img/hero-img-mobile.png' %}" alt="разные предметы">
+          </div>
+        </section>
+        <section class="section-chat" id="section-chat">
+            <h2 class="section-chat__title">Убедись, что фестиваль будет тебе полезен</h2>
+            <div class="section-chat__chat-container">
+                <div>
+                    <p class="section-chat__text">Узнай стоимость часа своей работы, получи точки роста и забери набор карьерных стикеров от Дезориентации для общения <br> с коллегами</p>
+                    <div>
+                        <img class="section-chat__img section-chat__img_desktop" src="{% static 'img/illustration-man.png' %}" alt="мужчина">
+                    </div>
+                </div>
+                <div class="chat" id="chat">
+                    <div class="chat__temp chat__temp_top"></div>
+                    <div class="chat__temp chat__temp_bottom"></div>
+                    <div class="chat__head">
+                        <span>Pro-fest</span>
+                    </div>
+                    <div class="chat__messages" id="chat-messages">
+                      <!-- Сюда будут добавляться сообщения чат-бота и пользователя -->
+                    </div>
+                    <div class="chat__input">
+                        <input type="text" class="chat__input-field" id="user-input" placeholder="Введите ответ на вопрос">
+                        <button class="btn chat__btn btn-green" id="send-button">
+                            <svg class="chat__button-svg" xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M28.9503 15.605C29.6912 15.9725 29.6912 17.0292 28.9503 17.3967L5.56937 28.9944C4.90465 29.3241 4.125 28.8405 4.125 28.0985V19.2488L16.5 16.4988L4.125 13.4661L4.125 4.9032C4.125 4.16121 4.90466 3.67764 5.56937 4.00736L28.9503 15.605Z" stroke="black" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="btn-result btn-violet" id="btn-result">Смотри результат!</button>
+                    </div>
+                </div>
+                <img class="section-chat__img section-chat__img_mobile" src="{% static 'img/illustration-man.png' %}" alt="мужчина">
+            </div>
+        </section>
+        <div class="overlay" id="overlay"></div>
+
+        <div class="chat__popup" id="popup">
+          <button class="chat__popup-btn-close chat__popup-btn-close-img btn-close-popup " id="popup-btn-close">
+            <!-- <img class="chat__popup-btn-close-img" src="{% static 'img/icon-close.svg' %}" alt="закрыть">  -->
+            <svg id="btn-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M19.699 1.89683C20.1003 1.46311 20.1003 0.758998 19.699 0.325285C19.1639 -0.108428 18.495 -0.108428 18.0936 0.325285L9.93311 8.42796L1.90635 0.325285C1.37124 -0.108428 0.702341 -0.108428 0.301003 0.325285C-0.100334 0.758998 -0.100334 1.46311 0.301003 1.89683L8.46154 9.9995L0.301003 18.1035C-0.100334 18.5372 -0.100334 19.24 0.301003 19.6737C0.702341 20.1088 1.37124 20.1088 1.90635 19.6737L9.93311 11.571L18.0936 19.6737C18.495 20.1088 19.1639 20.1088 19.699 19.6737C20.1003 19.24 20.1003 18.5372 19.699 18.1035L11.5385 9.9995L19.699 1.89683Z" fill="black"/>
+              </svg>
+
+
+          </button>
+          <div class="chat__popup-container">
+
+            <div class="chat__popup-column chat__popup-column_1">
+
+              <h3 class="chat__popup-title" id="popup-title"></h3>
+              <img class="popup-img" id="popup-img" alt="достигатор">
+              <div class="chat__popup-share-container">
+                <!-- <img src="{% static 'img/share-android.svg' }"> -->
+                <script src="https://yastatic.net/share2/share.js"></script>
+                <div class="btn-share ya-share2" id="ya-share2" data-curtain data-color-scheme="whiteblack" data-limit="0" data-more-button-type="short" data-services="vkontakte,telegram" data-image=""></div>
+                <!-- <button class="btn-share">
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="share-android">
+                    <path id="Path 2" d="M32 16L16 22" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                    <path id="Path 2_2" d="M32 32L16 26" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                    <path id="Oval" fill-rule="evenodd" clip-rule="evenodd" d="M12 28C14.2091 28 16 26.2091 16 24C16 21.7909 14.2091 20 12 20C9.79086 20 8 21.7909 8 24C8 26.2091 9.79086 28 12 28Z" stroke="black" stroke-width="2"/>
+                    <path id="Oval_2" fill-rule="evenodd" clip-rule="evenodd" d="M36 18C38.2091 18 40 16.2091 40 14C40 11.7909 38.2091 10 36 10C33.7909 10 32 11.7909 32 14C32 16.2091 33.7909 18 36 18Z" stroke="black" stroke-width="2"/>
+                    <path id="Oval_3" fill-rule="evenodd" clip-rule="evenodd" d="M36 38C38.2091 38 40 36.2091 40 34C40 31.7909 38.2091 30 36 30C33.7909 30 32 31.7909 32 34C32 36.2091 33.7909 38 36 38Z" stroke="black" stroke-width="2"/>
+                    </g>
+                    </svg>
+                </button> -->
+
+
+                <span class="chat__popup-share">Поделиться результатом (без указания суммы)</span>
+              </div>
+            </div>
+            <div class="chat__popup-column chat__popup-column_2">
+
+              <span class="chat__popup-hourly-rate" id="popup-rate"></span>
+              <p class="chat__popup-description" id="popup-description"></p>
+              <button class="btn chat__popup-btn btn-green">Забрать стикеры в Telegram-боте</button>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      <section class="fest-program">
+        <h2 class="fest-program__title">Что тебя ждет на фесте?</h2>
+        <div class="fest-program__cards">
+
+
+           <div class="fest-program__square-cards-container">
+             {% for event in data.events %}
+          {% if event.num == 1 or event.num == 2 %}
+            <div class="fest-program__card {{ event.style }}">
+                  <span class="fest-program__card-title">{{ event.name }}</span>
+                  <p class="fest-program__card-text">{{ event.description }}</p>
+                  <div>
+                    <p class="fest-program__card-date">{{ event.date|date:'d E' }}</p>
+                    <p class="fest-program__card-time">{{ event.start_time|date:'H:i' }} - {{ event.finish_time|date:'H:i' }}</p>
+                  </div>
+                </div>
+              {% endif %}
+             {% endfor %}
+             </div>
+          {% for event in data.events %}
+              {% if event.num == 3 and data.five_events %}
+                <div class="fest-program__card fest-program__card_rectangle">
+                  <img class="fest-program__card-img" src="{% static 'img/couple.png' %}" alt="пара">
+                  <div class="fest-program__card_rectangle-text-container">
+                    <span class="fest-program__card-title">{{ event.name }}</span>
+                    <p class="fest-program__card-text">{{ event.description }}</p>
+                    <div>
+                      <p class="fest-program__card-date">{{ event.date|date:'d E' }}</p>
+                      <p class="fest-program__card-time">{{ event.start_time|date:'H:i' }} - {{ event.finish_time|date:'H:i' }}</p>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+ <div class="fest-program__square-cards-container">
+             {% for event in data.events %}
+          {% if event.num == 4 or event.num == 5 %}
+            <div class="fest-program__card {{ event.style }}">
+                  <span class="fest-program__card-title">{{ event.name }}</span>
+                  <p class="fest-program__card-text">{{ event.description }}</p>
+                  <div>
+                    <p class="fest-program__card-date">{{ event.date|date:'d E' }}</p>
+                    <p class="fest-program__card-time">{{ event.start_time|date:'H:i' }} - {{ event.finish_time|date:'H:i' }}</p>
+                  </div>
+                </div>
+              {% endif %}
+             {% endfor %}
+             </div>
+
+        </div>
+        <button class="btn fest-program__btn scroll-button btn-green">Записаться на PRO-FEST</button>
+      </section>
+
+      <section class="merch">
+        <h2 class="merch__title">Разыграем фестивальный мерч среди участников!</h2>
+        <div class="merch__container">
+          <div class="merch__contaner-column merch__container-column_1">
+            <div class="merch__card">
+              <span>Метафорические карты</span>
+            </div>
+            <div class="merch__card">
+              <span>Сменные стикеры для одежды</span>
+            </div>
+            <div class="merch__card merch__card_covers">
+              <span>Чехол для AirPods</span>
+            </div>
+            <div class="merch__card merch__card_coffee merch__card_coffee-mobile">
+              <span>Кофейные зерна мотивации</span>
+            </div>
+            <button class="btn fest-program__btn merch__btn merch__btn_desktop scroll-button btn-green">Записаться на PRO-FEST</button>
+          </div>
+          <button class="btn fest-program__btn btn merch__btn merch__btn_mobile scroll-button btn-green">Записаться на PRO-FEST</button>
+          <div class="merch__contaner-column merch__container-column_2">
+            <div class="merch__card merch__card_coffee merch__card_coffee-desktop">
+              <span>Кофейные зерна мотивации</span>
+            </div>
+            <img class="merch__img" src="{% static 'img/illustration-woman.png' %}" alt="женщина">
+          </div>
+        </div>
+        <button class="btn fest-program__btn btn merch__btn merch__btn_1133 scroll-button btn-green">Записаться на PRO-FEST</button>
+      </section>
+    </div>
+    <footer class="footer">
+      <div class="content footer__content">
+        <div class="footer__logo-links-container">
+          <div class="logo-name">
+            <img class="footer__logo-img" src="{% static 'img/logo.svg' %}" alt="логотип">
+            <span class="logo-name__name footer__logo-name">Pro-fest</span>
+          </div>
+          <div class="footer__links footer__links_desktop">
+            <a href="#" class="footer__link">Договор оферты</a>
+            <a href="#" class="footer__link">Политика конфиденциальности</a>
+          </div>
+        </div>
+        <div class="footer__contact">
+          <span>Есть вопросы? Нужна помощь?</span>
+          <button class="btn footer__btn footer__btn_telegram btn-black">Telegram</button>
+          <button class="btn footer__btn footer__btn_email btn-white">Дезориентация</button>
+        </div>
+      </div>
+      <div class="footer__links footer__links_mobile">
+        <a href="#" class="footer__link">Договор оферты</a>
+        <a href="#" class="footer__link">Политика конфиденциальности</a>
+      </div>
+    </footer>
+
+    <script src="{% static 'js/chat-app.js' %}"></script>
+
+
+
+
+  </body>
+</html>
+
+
+
